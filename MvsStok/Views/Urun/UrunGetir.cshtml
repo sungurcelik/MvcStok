@@ -1,0 +1,32 @@
+﻿@model MvsStok.Models.Entity.Tbl_Urunler
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "Urun", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.UrunID)
+        @Html.TextBoxFor(m => m.UrunID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.UrunAd)
+        @Html.TextBoxFor(m => m.UrunAd, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.UrunMarka)
+        @Html.TextBoxFor(m => m.UrunMarka, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.UrunKategori)
+        @Html.DropDownListFor(m => m.Tbl_Kategoriler.KategoriID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+        @*@Html.TextBoxFor(m => m.UrunKategori, new { @class = "form-control" })*@
+        <br />
+        @Html.LabelFor(m => m.UrunFiyat)
+        @Html.TextBoxFor(m => m.UrunFiyat, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.UrunStok)
+        @Html.TextBoxFor(m => m.UrunStok, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
